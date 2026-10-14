@@ -1,0 +1,186 @@
+/* =====================================================================
+   JobTrack — gaya cetak
+   Dokumen dirender di #area-cetak (di luar kerangka aplikasi), sehingga
+   @media print cukup menyembunyikan UI dan menampilkan dokumen ini saja.
+   ===================================================================== */
+
+#area-cetak {
+  display: none;
+}
+
+.petunjuk-cetak {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11.5px;
+  }
+
+  .app,
+  .dialog-tirai,
+  .tirai,
+  .toast-tumpukan,
+  .palet,
+  .overlay-nav,
+  .petunjuk-cetak {
+    display: none !important;
+  }
+
+  #area-cetak {
+    display: block !important;
+  }
+
+  .cetak {
+    color: #000;
+  }
+
+  .cetak-kop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1.5pt solid #000;
+    margin-bottom: 12px;
+  }
+
+  .cetak-merek {
+    font-size: 9pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .cetak-kop h1 {
+    font-size: 15pt;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .cetak-sub {
+    font-size: 9pt;
+    color: #555;
+    text-align: right;
+    max-width: 45%;
+  }
+
+  .cetak-kisi {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 24px;
+    margin-bottom: 12px;
+  }
+
+  .cetak-kisi > div {
+    border-bottom: 0.5pt solid #e0e0e0;
+    padding-bottom: 3px;
+  }
+
+  .cetak-label {
+    display: block;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+  }
+
+  .cetak-bagian {
+    margin-bottom: 12px;
+    break-inside: avoid;
+  }
+
+  .cetak-bagian h2 {
+    font-size: 10pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 3px;
+    border-bottom: 0.5pt solid #bbb;
+    margin-bottom: 5px;
+  }
+
+  .cetak-tabel {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cetak-tabel th,
+  .cetak-tabel td {
+    border: 0.5pt solid #ccc;
+    padding: 4px 6px;
+    text-align: left;
+  }
+
+  .cetak-tabel thead th {
+    background: #f1f1f1;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cetak-tabel .angka {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cetak-total td,
+  .cetak-total th {
+    font-weight: 600;
+    background: #f7f7f7;
+  }
+
+  .cetak-daftar li {
+    margin-bottom: 2px;
+    padding-left: 10px;
+    text-indent: -10px;
+  }
+
+  .cetak-kaki {
+    margin-top: 16px;
+    padding-top: 6px;
+    border-top: 0.5pt solid #ccc;
+    font-size: 8.5pt;
+    color: #555;
+  }
+
+  .cetak-tanda {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 28px;
+  }
+
+  .cetak-tanda div span {
+    display: block;
+    border-top: 0.75pt solid #000;
+    margin-bottom: 4px;
+  }
+
+  .cetak-tanda p {
+    font-size: 8.5pt;
+    color: #444;
+  }
+
+  .cetak-filter {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .cetak thead {
+    display: table-header-group;
+  }
+
+  .cetak tr {
+    break-inside: avoid;
+  }
+}

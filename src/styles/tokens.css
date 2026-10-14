@@ -1,0 +1,173 @@
+/* =====================================================================
+   JobTrack — token desain
+   Arah visual: "papan kerja bengkel" — permukaan tenang, garis rambut,
+   tinta pekat sebagai aksi utama, dan warna hanya untuk status/p’attention.
+   Mendukung mode terang & gelap melalui atribut [data-tema] pada <html>.
+   ===================================================================== */
+
+:root {
+  /* --- Typeface (self-hosted, tanpa permintaan jaringan saat runtime) --- */
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* --- Skala tipografi --- */
+  --fs-micro: 10.5px;
+  --fs-caption: 11.5px;
+  --fs-small: 12.5px;
+  --fs-ui: 13.5px;
+  --fs-body: 14px;
+  --fs-lead: 16px;
+  --fs-title: 20px;
+  --fs-display: 28px;
+  --fs-metric: 34px;
+
+  /* --- Skala spasi (4px base) --- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+
+  /* --- Geometri --- */
+  --r-xs: 6px;
+  --r-sm: 9px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --row-h: 38px;
+
+  /* --- Gerak (dipakai hanya untuk respons aksi pengguna) --- */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-1: 110ms;
+  --dur-2: 170ms;
+  --dur-3: 260ms;
+
+  --sidebar-w: 264px;
+  --sidebar-rail: 68px;
+  --topbar-h: 60px;
+}
+
+/* ============================ Terang ============================ */
+:root,
+[data-tema="terang"] {
+  color-scheme: light;
+
+  --canvas: #f2f3f1;
+  --canvas-2: #e9eae7;
+  --paper: #ffffff;
+  --paper-2: #fafaf8;
+  --paper-3: #f5f5f2;
+
+  --ink: #10151a;
+  --ink-2: #333d46;
+  --muted: #66717b;
+  --faint: #98a1aa;
+
+  --line: rgba(16, 21, 26, 0.09);
+  --line-2: rgba(16, 21, 26, 0.16);
+  --line-strong: rgba(16, 21, 26, 0.28);
+
+  --aksen: #0e6a7c; /* petrol — interaksi & fokus */
+  --aksen-ink: #0a5261;
+  --aksen-tint: #e7f1f2;
+
+  --sukses: #2f7d4f;
+  --sukses-tint: #e9f5ee;
+  --waspada: #a96800;
+  --waspada-tint: #fdf3e2;
+  --bahaya: #c2410c;
+  --bahaya-tint: #fdeeE6;
+  --info: #2f6feb;
+  --info-tint: #eaf1fe;
+  --ungu: #6d4ac4;
+  --ungu-tint: #f0ecfb;
+
+  /* Aksi utama = tinta, bukan warnabrand: terlihat premium & tenang */
+  --tombol-aktif: #10151a;
+  --tombol-aktif-ink: #ffffff;
+  --tombol-aktif-hover: #262f38;
+
+  --shadow-1: 0 1px 2px rgba(16, 21, 26, 0.05);
+  --shadow-2: 0 6px 16px -8px rgba(16, 21, 26, 0.18), 0 1px 2px rgba(16, 21, 26, 0.04);
+  --shadow-3: 0 24px 60px -24px rgba(16, 21, 26, 0.35), 0 2px 6px rgba(16, 21, 26, 0.06);
+  --ring: 0 0 0 3px rgba(14, 106, 124, 0.28);
+
+  --sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+}
+
+/* ============================ Gelap ============================ */
+[data-tema="gelap"] {
+  color-scheme: dark;
+
+  --canvas: #0a0d10;
+  --canvas-2: #11151a;
+  --paper: #12171c;
+  --paper-2: #161c22;
+  --paper-3: #1b2229;
+
+  --ink: #e7ecf0;
+  --ink-2: #c3ccd4;
+  --muted: #8d99a4;
+  --faint: #66727d;
+
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.26);
+
+  --aksen: #4cc3d8;
+  --aksen-ink: #7fd7e6;
+  --aksen-tint: #10333b;
+
+  --sukses: #6cc48c;
+  --sukses-tint: #122c1f;
+  --waspada: #e0a441;
+  --waspada-tint: #322513;
+  --bahaya: #f5804e;
+  --bahaya-tint: #33190f;
+  --info: #7aa7ff;
+  --info-tint: #14213a;
+  --ungu: #b09af5;
+  --ungu-tint: #221b3a;
+
+  --tombol-aktif: #e7ecf0;
+  --tombol-aktif-ink: #0a0d10;
+  --tombol-aktif-hover: #ffffff;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 20px -10px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 28px 70px -28px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --ring: 0 0 0 3px rgba(76, 195, 216, 0.3);
+
+  --sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Prioritas warna semantik per status */
+:root {
+  --nada-baru-bg: var(--paper-3);
+  --nada-baru-ink: var(--ink-2);
+  --nada-baru-line: var(--line-2);
+  --nada-diperiksa-bg: var(--info-tint);
+  --nada-diperiksa-ink: var(--info);
+  --nada-dikerjakan-bg: var(--aksen-tint);
+  --nada-dikerjakan-ink: var(--aksen);
+  --nada-menunggu-bg: var(--waspada-tint);
+  --nada-menunggu-ink: var(--waspada);
+  --nada-siap-bg: var(--ungu-tint);
+  --nada-siap-ink: var(--ungu);
+  --nada-selesai-bg: var(--sukses-tint);
+  --nada-selesai-ink: var(--sukses);
+  --nada-batal-bg: var(--bahaya-tint);
+  --nada-batal-ink: var(--bahaya);
+}
