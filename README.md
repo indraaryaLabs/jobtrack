@@ -57,7 +57,7 @@ Reset data demo: **Data & cadangan -> Reset ke data demo** (dengan konfirmasi).
 ### Yang membuatnya terasa "premium" (lapisan UX v2)
 
 - **Palet perintah Ctrl/⌘ + K** — buka tiket apa pun, pindah filter, ekspor, cetak, tema,
- pintasan, reset demo. Penuh navigasi keyboard (↑↓ Enter Esc).
+ pintasan, reset demo. Penuh navigasi keyboard (tombol panah, Enter, Esc).
 - **Undo / Redo (Ctrl+Z / Ctrl+Shift+Z)** untuk setiap perubahan, dengan aksi "Urungkan"
  langsung di dalam toast. Tidak ada perubahan yang hilang tanpa jalan kembali.
 - **Edit cepat di tabel** — klik sel estimasi/DP/tenggat, ubah, simpan tanpa dialog.
